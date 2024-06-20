@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package eliza;
+
+message SayRequest {
+  string sentence = 1;
+}
+
+message SayResponse {
+  string sentence = 1;
+  int32 count = 2;
+  repeated string words = 3;
+  bool isValid = 4;
+}
+
+service ElizaService {
+  rpc Say(SayRequest) returns (SayResponse) {}
+}
